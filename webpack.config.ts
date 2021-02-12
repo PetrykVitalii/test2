@@ -1,6 +1,7 @@
 import path from "path";
 import webpack from "webpack";
 import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
+import CopyWebpackPlugin from 'copy-webpack-plugin';
 
 const config: webpack.Configuration = {
   entry: "./src/index.tsx",
@@ -35,11 +36,16 @@ const config: webpack.Configuration = {
     port: 4000,
   },
   plugins: [
-    new ForkTsCheckerWebpackPlugin({
-      async: false,
-      eslint: {
-        files: "./src/**/*",
-      },
+    // new ForkTsCheckerWebpackPlugin({
+    //   async: false,
+    //   eslint: {
+    //     files: "./src/**/*",
+    //   },
+    // }),
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: "./src/netlify/_redirects", to: "_redirects", toType: "file" },
+      ],
     }),
   ],
 };
