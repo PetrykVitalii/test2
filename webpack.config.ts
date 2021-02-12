@@ -1,7 +1,7 @@
 import path from "path";
 import webpack from "webpack";
-import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 const config: webpack.Configuration = {
   entry: "./src/index.tsx",
@@ -29,6 +29,7 @@ const config: webpack.Configuration = {
   output: {
     path: path.resolve(__dirname, "build"),
     filename: "bundle.js",
+    publicPath: "/",
   },
   devServer: {
     contentBase: path.join(__dirname, "build"),
@@ -42,6 +43,7 @@ const config: webpack.Configuration = {
     //     files: "./src/**/*",
     //   },
     // }),
+    new HtmlWebpackPlugin({ template: "./src/html/index.html" }),
     new CopyWebpackPlugin({
       patterns: [
         { from: "./src/netlify/_redirects", to: "_redirects", toType: "file" },
