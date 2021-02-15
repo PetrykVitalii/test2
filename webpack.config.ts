@@ -2,7 +2,8 @@ import path from "path";
 import webpack from "webpack";
 import CopyWebpackPlugin from 'copy-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
+import TerserWebpackPlugin from 'terser-webpack-plugin';
+import OptimazeCssAssetPlugin from 'optimize-css-assets-webpack-plugin';
 
 const config: webpack.Configuration = {
   entry: "./src/index.tsx",
@@ -12,13 +13,23 @@ const config: webpack.Configuration = {
         test: /\.(ts|js)x?$/,
         exclude: /node_modules/,
         use: {
-          loader: "ts-loader",
+          loader: "babel-loader",
           options: {
-            transpileOnly: true
+            presets: [
+              "@babel/preset-env",
+              "@babel/preset-react",
+              "@babel/preset-typescript",
+            ],
           },
         },
       },
     ],
+  },
+  optimization: {
+    // splitChunks: {
+    //   chunks: 'all',
+    // },
+    minimizer: [new OptimazeCssAssetPlugin(), new TerserWebpackPlugin()],
   },
   resolve: {
     extensions: [".tsx", ".ts", ".js"],
@@ -34,13 +45,18 @@ const config: webpack.Configuration = {
     port: 4000,
   },
   plugins: [
+    // new ForkTsCheckerWebpackPlugin({
+    //   async: false,
+    //   eslint: {
+    //     files: "./src/**/*",
+    //   },
+    // }),
     new HtmlWebpackPlugin({ template: "./src/html/index.html" }),
     new CopyWebpackPlugin({
       patterns: [
         { from: "./src/netlify/_redirects", to: "_redirects", toType: "file" },
       ],
     }),
-    new ForkTsCheckerWebpackPlugin()
   ],
 };
 
