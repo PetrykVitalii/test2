@@ -19,8 +19,11 @@ const App = () => {
   };
 
   return (
-  <h1 onClick={fail}>My React and TypeScript App!</h1>
+  <Div onClick={fail}>My React and TypeScript App!</Div>
 )};
+
+const Div = styled.h1`
+`;
 
 ReactDOM.render(
   <Sentry.ErrorBoundary fallback="An error has occurred">
