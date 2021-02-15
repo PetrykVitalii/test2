@@ -2,6 +2,7 @@ import path from "path";
 import webpack from "webpack";
 import CopyWebpackPlugin from 'copy-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin';
 
 const config: webpack.Configuration = {
   entry: "./src/index.tsx",
@@ -11,13 +12,9 @@ const config: webpack.Configuration = {
         test: /\.(ts|js)x?$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader",
+          loader: "ts-loader",
           options: {
-            presets: [
-              "@babel/preset-env",
-              "@babel/preset-react",
-              "@babel/preset-typescript",
-            ],
+            transpileOnly: true
           },
         },
       },
@@ -37,18 +34,13 @@ const config: webpack.Configuration = {
     port: 4000,
   },
   plugins: [
-    // new ForkTsCheckerWebpackPlugin({
-    //   async: false,
-    //   eslint: {
-    //     files: "./src/**/*",
-    //   },
-    // }),
     new HtmlWebpackPlugin({ template: "./src/html/index.html" }),
     new CopyWebpackPlugin({
       patterns: [
         { from: "./src/netlify/_redirects", to: "_redirects", toType: "file" },
       ],
     }),
+    new ForkTsCheckerWebpackPlugin()
   ],
 };
 
