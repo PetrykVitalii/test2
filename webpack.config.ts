@@ -6,7 +6,42 @@ import TerserWebpackPlugin from 'terser-webpack-plugin';
 import OptimazeCssAssetPlugin from 'optimize-css-assets-webpack-plugin';
 
 const config: webpack.Configuration = {
-  entry: "./src/index.tsx",
+  context: path.resolve(__dirname, 'src'),
+  mode: 'development',
+  entry: {
+    main: "./index.tsx",
+  },
+  output: {
+    path: path.resolve(__dirname, "build"),
+    filename: "[name].[hash].bundle.js",
+  },
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+    },
+    minimizer: [new OptimazeCssAssetPlugin(), new TerserWebpackPlugin()],
+  },
+  devServer: {
+    port: 3333,
+    hot: false,
+  },
+  plugins: [
+    // new ForkTsCheckerWebpackPlugin({
+    //   async: false,
+    //   eslint: {
+    //     files: "./src/**/*",
+    //   },
+    // }),
+    new HtmlWebpackPlugin({ template: "./html/index.html" }),
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: "./netlify/_redirects", to: "_redirects", toType: "file" },
+      ],
+    }),
+  ],
+  resolve: {
+    extensions: [".tsx", ".ts", ".js"],
+  },
   module: {
     rules: [
       {
@@ -25,39 +60,6 @@ const config: webpack.Configuration = {
       },
     ],
   },
-  optimization: {
-    // splitChunks: {
-    //   chunks: 'all',
-    // },
-    minimizer: [new OptimazeCssAssetPlugin(), new TerserWebpackPlugin()],
-  },
-  resolve: {
-    extensions: [".tsx", ".ts", ".js"],
-  },
-  output: {
-    path: path.resolve(__dirname, "build"),
-    filename: "bundle.js",
-    publicPath: "/",
-  },
-  devServer: {
-    contentBase: path.join(__dirname, "build"),
-    compress: true,
-    port: 4000,
-  },
-  plugins: [
-    // new ForkTsCheckerWebpackPlugin({
-    //   async: false,
-    //   eslint: {
-    //     files: "./src/**/*",
-    //   },
-    // }),
-    new HtmlWebpackPlugin({ template: "./src/html/index.html" }),
-    new CopyWebpackPlugin({
-      patterns: [
-        { from: "./src/netlify/_redirects", to: "_redirects", toType: "file" },
-      ],
-    }),
-  ],
 };
 
 export default config;
