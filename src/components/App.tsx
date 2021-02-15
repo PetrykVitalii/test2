@@ -10,12 +10,17 @@ const App: React.FC<Props> = () => {
     const fail = () => {
       const styledC: any = styled;
       console.log(styledC);
-      document.body.style.background = "red";
-    };
+      if (Math.random() > 0.5) {
+        document.body.style.background = "red"
+      } else {
+        document.body.style.background = "green"
+      }
+    }
   
     return (
-    <Div onClick={fail}>My React and TypeScript App!</Div>
-)};
+        <Div onClick={fail}>My1 React and TypeScript App!</Div>
+    )
+};
   
 const Div = styled.h1`
 `;
