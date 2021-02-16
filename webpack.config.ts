@@ -11,12 +11,11 @@ const config: webpack.Configuration = {
   context: path.resolve(__dirname, 'src'),
   mode: 'development',
   entry: {
-    bundle: "./index.tsx",
+    main: "./index.tsx",
   },
   output: {
-    publicPath: "/",
-    filename: "[name].js",
     path: path.resolve(__dirname, "build"),
+    filename: "[name].[hash].bundle.js",
   },
   // optimization: {
   //   splitChunks: {
@@ -35,6 +34,24 @@ const config: webpack.Configuration = {
       index: "/",
     },
   },
+  plugins: [
+    // new ForkTsCheckerWebpackPlugin({
+    //   async: false,
+    //   eslint: {
+    //     files: "./src/**/*",
+    //   },
+    // }),
+    new HtmlWebpackPlugin({ template: "./html/index.html" }),
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: "./netlify/_redirects", to: "_redirects", toType: "file" },
+      ],
+    }),
+  ],
+  resolve: {
+    // plugins: [new TsconfigPathsPlugin()],
+    extensions: [".tsx", ".ts", ".js"],
+  },
   module: {
     rules: [
       {
@@ -52,24 +69,6 @@ const config: webpack.Configuration = {
       },
     ],
   },
-  resolve: {
-    // plugins: [new TsconfigPathsPlugin()],
-    extensions: [".tsx", ".ts", ".js"],
-  },
-  plugins: [
-    // new ForkTsCheckerWebpackPlugin({
-    //   async: false,
-    //   eslint: {
-    //     files: "./src/**/*",
-    //   },
-    // }),
-    new HtmlWebpackPlugin({ template: "./html/index.html" }),
-    new CopyWebpackPlugin({
-      patterns: [
-        { from: "./netlify/_redirects", to: "_redirects", toType: "file" },
-      ],
-    }),
-  ],
 };
 
 export default config;
