@@ -3,13 +3,13 @@
 /* eslint-disable @typescript-eslint/no-empty-interface */
 import React from 'react'
 import styled from 'styled-components';
-// import { Provider } from 'react-redux';
+import { Provider } from 'react-redux';
 
 interface Props {
 }
 
 const App: React.FC<Props> = () => {
-  // const a = Provider
+  const a = Provider
     const fail = () => {
       const styledC: any = styled;
       console.log(styledC);
