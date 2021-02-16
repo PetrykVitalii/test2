@@ -35,24 +35,6 @@ const config: webpack.Configuration = {
       index: "/",
     },
   },
-  plugins: [
-    // new ForkTsCheckerWebpackPlugin({
-    //   async: false,
-    //   eslint: {
-    //     files: "./src/**/*",
-    //   },
-    // }),
-    new HtmlWebpackPlugin({ template: "./html/index.html" }),
-    new CopyWebpackPlugin({
-      patterns: [
-        { from: "./netlify/_redirects", to: "_redirects", toType: "file" },
-      ],
-    }),
-  ],
-  resolve: {
-    // plugins: [new TsconfigPathsPlugin()],
-    extensions: [".tsx", ".ts", ".js"],
-  },
   module: {
     rules: [
       {
@@ -70,6 +52,24 @@ const config: webpack.Configuration = {
       },
     ],
   },
+  resolve: {
+    // plugins: [new TsconfigPathsPlugin()],
+    extensions: [".tsx", ".ts", ".js"],
+  },
+  plugins: [
+    // new ForkTsCheckerWebpackPlugin({
+    //   async: false,
+    //   eslint: {
+    //     files: "./src/**/*",
+    //   },
+    // }),
+    new HtmlWebpackPlugin({ template: "./html/index.html" }),
+    new CopyWebpackPlugin({
+      patterns: [
+        { from: "./netlify/_redirects", to: "_redirects", toType: "file" },
+      ],
+    }),
+  ],
 };
 
 export default config;
