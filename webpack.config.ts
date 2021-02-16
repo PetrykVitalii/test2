@@ -18,12 +18,6 @@ const config: webpack.Configuration = {
     filename: "[name].js",
     path: path.resolve(__dirname, "build"),
   },
-  // optimization: {
-  //   splitChunks: {
-  //     chunks: 'all',
-  //   },
-  //   minimizer: [new OptimazeCssAssetPlugin(), new TerserWebpackPlugin()],
-  // },
   devServer: {
     contentBase: path.join(__dirname, "build"),
     inline: true,
@@ -60,7 +54,9 @@ const config: webpack.Configuration = {
     new HtmlWebpackPlugin({ template: "./html/index.html" }),
     new CopyWebpackPlugin({
       patterns: [
+        { from: "assets", to: "assets", noErrorOnMissing: true },
         { from: "netlify/_redirects", to: "_redirects", toType: "file" },
+        { from: "robots.txt", to: "robots.txt", toType: "file" },
       ],
     }),
   ],
