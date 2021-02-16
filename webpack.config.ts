@@ -1,14 +1,13 @@
-/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import path from "path";
+import webpack from "webpack";
 import CopyWebpackPlugin from 'copy-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-import { Configuration } from 'webpack';
 // import TerserWebpackPlugin from 'terser-webpack-plugin';
 // import OptimazeCssAssetPlugin from 'optimize-css-assets-webpack-plugin';
 import createStyledComponentsTransformer from 'typescript-plugin-styled-components';
 // import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin';
 
-export default {
+const config: webpack.Configuration = {
   context: path.resolve(__dirname, 'src'),
   mode: 'production',
   entry: {
@@ -65,4 +64,6 @@ export default {
       ],
     }),
   ],
-} as Configuration;
+};
+
+export default config;
