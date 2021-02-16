@@ -4,6 +4,7 @@ import CopyWebpackPlugin from 'copy-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import TerserWebpackPlugin from 'terser-webpack-plugin';
 import OptimazeCssAssetPlugin from 'optimize-css-assets-webpack-plugin';
+import createStyledComponentsTransformer from 'typescript-plugin-styled-components';
 // import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin';
 
 const config: webpack.Configuration = {
@@ -48,10 +49,16 @@ const config: webpack.Configuration = {
     rules: [
       {
         test: /\.(ts|tsx)?$/,
-        exclude: /node_modules/,
-        use: {
-          loader: "ts-loader",
+        loader: "ts-loader",
+        options: {
+          getCustomTransformers: () => ({
+            before: [createStyledComponentsTransformer()],
+          }),
         },
+      },
+      { 
+        test: /\.css$/, 
+        use: [ 'style-loader', 'css-loader' ] 
       },
     ],
   },
