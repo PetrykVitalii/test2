@@ -1,15 +1,19 @@
+/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
 import path from "path";
-import { Configuration, EnvironmentPlugin } from 'webpack';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import { Configuration, EnvironmentPlugin } from 'webpack';
 // import TerserWebpackPlugin from 'terser-webpack-plugin';
 // import OptimazeCssAssetPlugin from 'optimize-css-assets-webpack-plugin';
 import createStyledComponentsTransformer from 'typescript-plugin-styled-components';
 // import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin';
+import { config } from 'dotenv';
+
+config();
 
 export default {
   context: path.resolve(__dirname, 'src'),
-  mode: 'development',
+  mode: 'production',
   entry: {
     bundle: "./index.tsx",
   },
@@ -60,9 +64,7 @@ export default {
     new HtmlWebpackPlugin({ template: "./html/index.html" }),
     new CopyWebpackPlugin({
       patterns: [
-        { from: "assets", to: "assets", noErrorOnMissing: true },
         { from: "netlify/_redirects", to: "_redirects", toType: "file" },
-        { from: "robots.txt", to: "robots.txt", toType: "file" },
       ],
     }),
     new EnvironmentPlugin({
