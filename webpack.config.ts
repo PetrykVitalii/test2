@@ -2,14 +2,11 @@
 import path from "path";
 import CopyWebpackPlugin from 'copy-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-import { Configuration, EnvironmentPlugin } from 'webpack';
+import { Configuration } from 'webpack';
 // import TerserWebpackPlugin from 'terser-webpack-plugin';
 // import OptimazeCssAssetPlugin from 'optimize-css-assets-webpack-plugin';
 import createStyledComponentsTransformer from 'typescript-plugin-styled-components';
 // import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin';
-import { config } from 'dotenv';
-
-config();
 
 export default {
   context: path.resolve(__dirname, 'src'),
@@ -66,10 +63,6 @@ export default {
       patterns: [
         { from: "netlify/_redirects", to: "_redirects", toType: "file" },
       ],
-    }),
-    new EnvironmentPlugin({
-      API_URL: process.env.API_URL,
-      SELL_APP_URL: process.env.SELL_APP_URL
     }),
   ],
 } as Configuration;
