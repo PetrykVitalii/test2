@@ -9,7 +9,7 @@ import createStyledComponentsTransformer from 'typescript-plugin-styled-componen
 
 const config: webpack.Configuration = {
   context: path.resolve(__dirname, 'src'),
-  mode: 'production',
+  mode: 'development',
   entry: {
     bundle: "./index.tsx",
   },
