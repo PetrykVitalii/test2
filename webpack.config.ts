@@ -4,6 +4,7 @@ import CopyWebpackPlugin from 'copy-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import TerserWebpackPlugin from 'terser-webpack-plugin';
 import OptimazeCssAssetPlugin from 'optimize-css-assets-webpack-plugin';
+// import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin';
 
 const config: webpack.Configuration = {
   context: path.resolve(__dirname, 'src'),
@@ -40,22 +41,16 @@ const config: webpack.Configuration = {
     }),
   ],
   resolve: {
+    // plugins: [new TsconfigPathsPlugin()],
     extensions: [".tsx", ".ts", ".js"],
   },
   module: {
     rules: [
       {
-        test: /\.(ts|js)x?$/,
+        test: /\.(ts|tsx)?$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader",
-          options: {
-            presets: [
-              "@babel/preset-env",
-              "@babel/preset-react",
-              "@babel/preset-typescript",
-            ],
-          },
+          loader: "ts-loader",
         },
       },
     ],
