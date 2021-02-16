@@ -23,6 +23,8 @@ const App: React.FC<Props> = () => {
 };
   
 const Div = styled.h1`
+  font-size: 70px;
+  font-weight: 900;
 `;
 
 export default App;
