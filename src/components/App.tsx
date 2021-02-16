@@ -6,6 +6,8 @@ import styled from 'styled-components';
 import { Provider } from 'react-redux';
 import Carousel, { Dots } from '@brainhubeu/react-carousel';
 import axios from 'axios';
+import { ConnectedRouter } from 'connected-react-router';
+
 
 interface Props {
 }
@@ -15,6 +17,7 @@ const App: React.FC<Props> = () => {
   const b = Carousel
   const c = Dots
   const d = axios
+  const f = ConnectedRouter
     const fail = () => {
       const styledC: any = styled;
       console.log(styledC);
