@@ -1,5 +1,5 @@
 import path from "path";
-import webpack from "webpack";
+import { Configuration, EnvironmentPlugin } from 'webpack';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 // import TerserWebpackPlugin from 'terser-webpack-plugin';
@@ -7,7 +7,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import createStyledComponentsTransformer from 'typescript-plugin-styled-components';
 // import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin';
 
-const config: webpack.Configuration = {
+export default {
   context: path.resolve(__dirname, 'src'),
   mode: 'development',
   entry: {
@@ -57,19 +57,17 @@ const config: webpack.Configuration = {
     extensions: [".tsx", ".ts", ".js"],
   },
   plugins: [
-    // new ForkTsCheckerWebpackPlugin({
-    //   async: false,
-    //   eslint: {
-    //     files: "./src/**/*",
-    //   },
-    // }),
     new HtmlWebpackPlugin({ template: "./html/index.html" }),
     new CopyWebpackPlugin({
       patterns: [
-        { from: "./netlify/_redirects", to: "_redirects", toType: "file" },
+        { from: "assets", to: "assets", noErrorOnMissing: true },
+        { from: "netlify/_redirects", to: "_redirects", toType: "file" },
+        { from: "robots.txt", to: "robots.txt", toType: "file" },
       ],
     }),
+    new EnvironmentPlugin({
+      API_URL: process.env.API_URL,
+      SELL_APP_URL: process.env.SELL_APP_URL
+    }),
   ],
-};
-
-export default config;
+} as Configuration;
