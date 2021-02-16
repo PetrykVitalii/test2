@@ -7,7 +7,6 @@ import { Provider } from 'react-redux';
 import Carousel, { Dots } from '@brainhubeu/react-carousel';
 import axios from 'axios';
 import { ConnectedRouter } from 'connected-react-router';
-import { config } from 'dotenv';
 
 
 interface Props {
@@ -19,7 +18,6 @@ const App: React.FC<Props> = () => {
   const c = Dots
   const d = axios
   const f = ConnectedRouter
-  const g = config
     const fail = () => {
       const styledC: any = styled;
       console.log(styledC);
