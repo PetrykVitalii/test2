@@ -24,8 +24,15 @@ const config: webpack.Configuration = {
     minimizer: [new OptimazeCssAssetPlugin(), new TerserWebpackPlugin()],
   },
   devServer: {
-    port: 3333,
-    hot: false,
+    contentBase: path.join(__dirname, "build"),
+    inline: true,
+    hot: true,
+    port: Number(process.env.PORT),
+    publicPath: "/",
+    host: "0.0.0.0",
+    historyApiFallback: {
+      index: "/",
+    },
   },
   plugins: [
     // new ForkTsCheckerWebpackPlugin({
