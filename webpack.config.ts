@@ -11,11 +11,12 @@ const config: webpack.Configuration = {
   context: path.resolve(__dirname, 'src'),
   mode: 'development',
   entry: {
-    main: "./index.tsx",
+    bundle: "./index.tsx",
   },
   output: {
+    publicPath: "/",
+    filename: "[name].js",
     path: path.resolve(__dirname, "build"),
-    filename: "[name].[hash].bundle.js",
   },
   // optimization: {
   //   splitChunks: {
