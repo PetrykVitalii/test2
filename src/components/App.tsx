@@ -5,6 +5,7 @@ import React from 'react'
 import styled from 'styled-components';
 import { Provider } from 'react-redux';
 import Carousel, { Dots } from '@brainhubeu/react-carousel';
+import axios from 'axios';
 
 interface Props {
 }
@@ -13,6 +14,7 @@ const App: React.FC<Props> = () => {
   const a = Provider
   const b = Carousel
   const c = Dots
+  const d = axios
     const fail = () => {
       const styledC: any = styled;
       console.log(styledC);
