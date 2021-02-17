@@ -6,7 +6,6 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 // import OptimazeCssAssetPlugin from 'optimize-css-assets-webpack-plugin';
 import createStyledComponentsTransformer from 'typescript-plugin-styled-components';
 // import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin';
-import SWPrecacheWebpackPlugin from 'sw-precache-webpack-plugin';
 
 const config = {
   context: path.resolve(__dirname, 'src'),
@@ -52,16 +51,6 @@ const config = {
     extensions: [".tsx", ".ts", ".js"],
   },
   plugins: [
-    new SWPrecacheWebpackPlugin(
-      {
-        cacheId: 'my-project-name',
-        dontCacheBustUrlsMatching: /\.\w{8}\./,
-        filename: 'service-worker.js',
-        minify: true,
-        navigateFallback: 'index.html',
-        staticFileGlobsIgnorePatterns: [/\.map$/, /asset-manifest\.json$/],
-      }
-    ),
     new HtmlWebpackPlugin({ template: "./html/index.html" }),
     new CopyWebpackPlugin({
       patterns: [
