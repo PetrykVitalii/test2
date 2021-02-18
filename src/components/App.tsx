@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-empty-interface */
-import React from 'react'
+import React from 'react';
 import styled from 'styled-components';
-import { Provider } from 'react-redux';
+import { Provider, useSelector } from 'react-redux';
 import Carousel, { Dots } from '@brainhubeu/react-carousel';
 import axios from 'axios';
 import { ConnectedRouter } from 'connected-react-router';
@@ -13,7 +13,7 @@ import { createActionCreators } from 'immer-reducer';
 import JsPDF from 'jspdf';
 import moment from 'moment';
 import { isValidPhoneNumber } from 'react-phone-number-input';
-import { useSelector } from 'react-redux';
+
 import { useHistory } from 'react-router';
 import { Link } from 'react-router-dom';
 import { CSSTransition } from 'react-transition-group';
@@ -46,21 +46,21 @@ const App: React.FC<Props> = () => {
   console.log(Link);
   console.log(createStore);
 
-    const fail = () => {
-      const styledC: any = styled;
-      console.log(styledC);
-      if (Math.random() > 0.5) {
-        document.body.style.background = "red"
-      } else {
-        document.body.style.background = "green"
-      }
+  const fail = () => {
+    const styledC: any = styled;
+    console.log(styledC);
+    if (Math.random() > 0.5) {
+      document.body.style.background = 'red';
+    } else {
+      document.body.style.background = 'green';
     }
-  
-    return (
-        <Div onClick={fail}>My1 React and TypeScript App!</Div>
-    )
+  };
+
+  return (
+    <Div onClick={fail}>My1 React and TypeScript App!</Div>
+  );
 };
-  
+
 const Div = styled.h1`
   font-size: 70px;
   font-weight: 900;
