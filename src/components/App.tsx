@@ -13,15 +13,16 @@ import { createActionCreators } from 'immer-reducer';
 import JsPDF from 'jspdf';
 import moment from 'moment';
 import { isValidPhoneNumber } from 'react-phone-number-input';
-
-
-
-
+import { useSelector } from 'react-redux';
+import { useHistory } from 'react-router';
+import { Link } from 'react-router-dom';
+import { CSSTransition } from 'react-transition-group';
 
 interface Props {
 }
 
 const App: React.FC<Props> = () => {
+  console.log(CSSTransition);
   console.log(Provider);
   console.log(Carousel);
   console.log(Dots);
@@ -33,6 +34,9 @@ const App: React.FC<Props> = () => {
   console.log(JsPDF);
   console.log(moment);
   console.log(isValidPhoneNumber);
+  console.log(useSelector);
+  console.log(useHistory);
+  console.log(Link);
 
     const fail = () => {
       const styledC: any = styled;
