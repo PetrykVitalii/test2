@@ -6,8 +6,11 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 // import OptimazeCssAssetPlugin from 'optimize-css-assets-webpack-plugin';
 import createStyledComponentsTransformer from 'typescript-plugin-styled-components';
 import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin'; 
+import { EnvironmentPlugin } from 'webpack';
+import { config } from 'dotenv';
 
-const config = {
+config();
+const configT = {
   context: path.resolve(__dirname, 'src'),
   mode: 'production',
   entry: {
@@ -83,7 +86,10 @@ const config = {
         { from: "robots.txt", to: "robots.txt", toType: "file" },
       ],
     }),
+    new EnvironmentPlugin({
+      API_URL: process.env.API_URL,
+    }),
   ],
 };
 
-export default config;
+export default configT;
