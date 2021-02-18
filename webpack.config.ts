@@ -83,7 +83,6 @@ const configT = {
       patterns: [
         { from: "assets", to: "assets", noErrorOnMissing: true },
         { from: "netlify/_redirects", to: "_redirects", toType: "file" },
-        { from: "robots.txt", to: "robots.txt", toType: "file" },
       ],
     }),
     new EnvironmentPlugin({
