@@ -6,7 +6,6 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 // import OptimazeCssAssetPlugin from 'optimize-css-assets-webpack-plugin';
 import createStyledComponentsTransformer from 'typescript-plugin-styled-components';
 import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin'; 
-import WorkboxPlugin from 'workbox-webpack-plugin';
 
 const config = {
   context: path.resolve(__dirname, 'src'),
@@ -52,29 +51,6 @@ const config = {
     extensions: [".tsx", ".ts", ".js"],
   },
   plugins: [
-    new WorkboxPlugin.GenerateSW({
-      // Do not precache images
-      exclude: [/\.(?:png|jpg|jpeg|svg)$/],
-
-      // Define runtime caching rules.
-      runtimeCaching: [{
-        // Match any request that ends with .png, .jpg, .jpeg or .svg.
-        urlPattern: /\.(?:png|jpg|jpeg|svg)$/,
-
-        // Apply a cache-first strategy.
-        handler: 'CacheFirst',
-
-        options: {
-          // Use a custom cache name.
-          cacheName: 'images',
-
-          // Only cache 10 images.
-          expiration: {
-            maxEntries: 10,
-          }
-        }
-      }]
-    }),
     new HtmlWebpackPlugin({ template: "./html/index.html" }),
     new CopyWebpackPlugin({
       patterns: [
