@@ -11,6 +11,9 @@ import history from 'history';
 import html2canvas from 'html2canvas';
 import { createActionCreators } from 'immer-reducer';
 import JsPDF from 'jspdf';
+import moment from 'moment';
+import { isValidPhoneNumber } from 'react-phone-number-input';
+
 
 
 
@@ -28,6 +31,8 @@ const App: React.FC<Props> = () => {
   console.log(html2canvas);
   console.log(createActionCreators);
   console.log(JsPDF);
+  console.log(moment);
+  console.log(isValidPhoneNumber);
 
     const fail = () => {
       const styledC: any = styled;
