@@ -8,6 +8,11 @@ import Carousel, { Dots } from '@brainhubeu/react-carousel';
 import axios from 'axios';
 import { ConnectedRouter } from 'connected-react-router';
 import history from 'history';
+import html2canvas from 'html2canvas';
+import { createActionCreators } from 'immer-reducer';
+import JsPDF from 'jspdf';
+
+
 
 
 interface Props {
@@ -20,6 +25,9 @@ const App: React.FC<Props> = () => {
   console.log(axios);
   console.log(ConnectedRouter);
   console.log(history);
+  console.log(html2canvas);
+  console.log(createActionCreators);
+  console.log(JsPDF);
 
     const fail = () => {
       const styledC: any = styled;
