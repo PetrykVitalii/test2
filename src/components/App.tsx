@@ -7,17 +7,20 @@ import { Provider } from 'react-redux';
 import Carousel, { Dots } from '@brainhubeu/react-carousel';
 import axios from 'axios';
 import { ConnectedRouter } from 'connected-react-router';
+import history from 'history';
 
 
 interface Props {
 }
 
 const App: React.FC<Props> = () => {
-  const a = Provider
-  const b = Carousel
-  const c = Dots
-  const d = axios
-  const f = ConnectedRouter
+  console.log(Provider);
+  console.log(Carousel);
+  console.log(Dots);
+  console.log(axios);
+  console.log(ConnectedRouter);
+  console.log(history);
+
     const fail = () => {
       const styledC: any = styled;
       console.log(styledC);
