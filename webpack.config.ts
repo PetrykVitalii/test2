@@ -88,6 +88,7 @@ const configT = {
     }),
     new EnvironmentPlugin({
       API_URL: process.env.API_URL,
+      SELL_APP_URL: process.env.SELL_APP_URL,
     }),
   ],
 };
