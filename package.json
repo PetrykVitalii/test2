@@ -16,33 +16,17 @@
     "start": "webpack serve",
     "build": "webpack --mode production"
   },
-  "android": {
-    "browser": "Android Browser",
-    "abbr": "And.",
-    "prefix": "webkit",
-    "type": "mobile",
-    "usage_global": {
-        "2.1": 0.00480563,
-        "2.2": 0.00823823,
-        "2.3": 0.00480563,
-        "3": 0.000686519,
-        "4": 0.0988588,
-        "4.1": 0.0494294,
-        "4.2-4.3": 0.214194,
-        "4.4": 0,
-        "4.4.3-4.4.4": 0.300009,
-        "67": 0
-  },
   "browserslist": {
     "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
+      "> 1%",
+      "ie 10"
     ],
-    "development": [
+    "modern": [
       "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
+      "last 1 firefox version"
+    ],
+    "ssr": [
+      "node 12"
     ]
   },
   "devDependencies": {
