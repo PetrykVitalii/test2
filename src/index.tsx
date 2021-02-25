@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import * as Sentry from '@sentry/react';
 import { Integrations } from '@sentry/tracing';
-import App from "./components/App";
+import App from "./App";
 
 Sentry.init({
   dsn: 'https://5713e176114d48018bc11a3a500b2654@o494472.ingest.sentry.io/5565601',
