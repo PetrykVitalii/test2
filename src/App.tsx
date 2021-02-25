@@ -1,10 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-empty-interface */
-import React, { Suspense } from 'react';
-import {
-  BrowserRouter, Switch, Route,
-} from 'react-router-dom';
-import Welcome from './Welcome';
+import React from 'react';
+import styled from 'styled-components';
 // import E from './E';
 // import W from './W';
 // import Welcome from './Welcome';
@@ -16,9 +13,11 @@ interface Props {
 }
 
 const App: React.FC<Props> = () => (
-  <Welcome />
+  <Div>
+    Wwwwwwwwwwwwwwww
+  </Div>
   // <BrowserRouter>
-    
+
   //   <Switch>
   //       <Route path="/" component={Welcome} exact />
   //       <Route path="/w" component={W} exact />
@@ -26,5 +25,10 @@ const App: React.FC<Props> = () => (
   //     </Switch>
   // </BrowserRouter>
 );
+
+const Div = styled.h1`
+  color: green;
+  font-size: 50px;
+`;
 
 export default App;
