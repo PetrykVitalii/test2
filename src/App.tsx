@@ -16,14 +16,15 @@ interface Props {
 }
 
 const App: React.FC<Props> = () => (
-  <BrowserRouter>
-    <Welcome />
-    {/* <Switch>
-        <Route path="/" component={Welcome} exact />
-        <Route path="/w" component={W} exact />
-        <Route path="/e" component={E} exact />
-      </Switch> */}
-  </BrowserRouter>
+  <Welcome />
+  // <BrowserRouter>
+    
+  //   <Switch>
+  //       <Route path="/" component={Welcome} exact />
+  //       <Route path="/w" component={W} exact />
+  //       <Route path="/e" component={E} exact />
+  //     </Switch>
+  // </BrowserRouter>
 );
 
 export default App;
