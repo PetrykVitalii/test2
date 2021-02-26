@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="50" height="50" viewBox="0 0 50 50">
+    <defs>
+        <filter id="4ckusfayza" width="147.5%" height="147.5%" x="-23.8%" y="-13.8%" filterUnits="objectBoundingBox">
+            <feMorphology in="SourceAlpha" radius="2.5" result="shadowSpreadOuter1"/>
+            <feOffset dy="4" in="shadowSpreadOuter1" result="shadowOffsetOuter1"/>
+            <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="5"/>
+            <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.4 0"/>
+        </filter>
+        <path id="xqmcr0ikib" d="M12.82 0h14.36c4.458 0 6.075.464 7.704 1.336 1.63.871 2.909 2.15 3.78 3.78C39.536 6.746 40 8.362 40 12.819v14.362c0 4.457-.464 6.074-1.336 7.703-.871 1.63-2.15 2.909-3.78 3.78-1.63.872-3.246 1.336-7.703 1.336H12.819c-4.457 0-6.074-.464-7.703-1.336-1.63-.871-2.909-2.15-3.78-3.78C.464 33.254 0 31.638 0 27.181V12.819c0-4.457.464-6.074 1.336-7.703.871-1.63 2.15-2.909 3.78-3.78C6.746.464 8.362 0 12.819 0z"/>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <g>
+            <g>
+                <g>
+                    <g transform="translate(-11 -589) translate(-10 579) translate(26 11)">
+                        <use fill="#000" filter="url(#4ckusfayza)" xlink:href="#xqmcr0ikib"/>
+                        <use fill="#FFF" xlink:href="#xqmcr0ikib"/>
+                    </g>
+                    <path fill="#21272E" fill-rule="nonzero" d="M8.574 24.934c1.969 0 3.15-1.265 3.15-2.798 0-3.22-4.81-2.672-4.81-4.725 0-.788.746-1.449 1.8-1.449 1.266 0 2.18.858 2.18.858l.633-1.153s-.97-.998-2.812-.998c-1.87 0-3.206 1.223-3.206 2.77 0 3.052 4.809 2.588 4.809 4.74 0 .941-.788 1.462-1.716 1.462-1.476 0-2.53-1.07-2.53-1.07l-.788 1.056s1.18 1.307 3.29 1.307zm11.152-.168v-1.21h-4.613v-3.192h3.558v-1.21h-3.558v-3.107h4.374v-1.21H13.72v9.929h6.005zm7.889 0v-1.21H23.17v-8.719H21.78v9.929h5.836zm7.439 0v-1.21H30.61v-8.719h-1.392v9.929h5.836z" transform="translate(-11 -589) translate(-10 579) translate(26 11)"/>
+                    <path fill="#F43939" d="M4.922 8.766H35.077999999999996V10.172H4.922zM4.922 29.438H35.077999999999996V30.843999999999998H4.922z" transform="translate(-11 -589) translate(-10 579) translate(26 11)"/>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

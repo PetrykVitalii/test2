@@ -1,0 +1,29 @@
+{
+  "extends": ["airbnb-typescript"],
+  "parserOptions": {
+    "project": "./tsconfig.json"
+  },
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "rules": {
+    "@typescript-eslint/no-use-before-define": ["error", { "variables": false }],
+    "no-confusing-arrow": "off",
+    "no-underscore-dangle": ["error", { "allow": ["__WB_MANIFEST", "__REDUX_DEVTOOLS_EXTENSION_COMPOSE__"] }],
+    "linebreak-style": "off",
+    "react/prop-types": "off",
+    "react/no-array-index-key": "off",
+    "@typescript-eslint/member-delimiter-style": ["error", {
+      "multiline": {
+        "delimiter": "semi",
+        "requireLast": true
+      },
+      "singleline": {
+        "delimiter": "semi",
+        "requireLast": false
+      }
+    }],
+    "react/jsx-props-no-spreading": "off"
+  }
+}
