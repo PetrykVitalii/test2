@@ -10,7 +10,7 @@ config();
 export default {
   mode: process.env.NODE_ENV,
   context: path.resolve(__dirname, 'src'),
-  entry: './index.tsx',
+  entry: ['babel-polyfill', './index.tsx'],
   output: {
     publicPath: '/',
     filename:
