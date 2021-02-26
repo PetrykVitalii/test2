@@ -17,9 +17,6 @@ import { trackUtm } from '@/store/actions/utm-tracking';
 import { trackPwaAsync } from '@/store/actions/pwa';
 
 import LocalStorage from '@/utils/local-storage';
-
-import ProtectedRoute from '@/components/common/ProtectedRoute';
-
 // import Authorization from '@/containers/Authorization';
 // import Catalogs from '@/containers/Catalogs';
 // import AddItemsPage from '@/containers/AddItemsPage';
@@ -56,33 +53,33 @@ import ProtectedRoute from '@/components/common/ProtectedRoute';
 import HistoryState from '@/utils/HistoryState';
 import Loader from '@/components/common/Loader';
 
-const Orders = React.lazy(() => import('@/containers/Orders'));
-const Order = React.lazy(() => import('@/containers/Order'));
-const Catalogs = React.lazy(() => import('@/containers/Catalogs'));
-const AddItemsPage = React.lazy(() => import('@/containers/AddItemsPage'));
-const Settings = React.lazy(() => import('@/containers/Settings'));
-const ProfileSettings = React.lazy(() => import('@/containers/ProfileSettings'));
-const Notifications = React.lazy(() => import('@/containers/Notifications'));
-const LegalInfo = React.lazy(() => import('@/containers/LegalInfo'));
-const Help = React.lazy(() => import('@/containers/Help'));
-const CatalogItemEdit = React.lazy(() => import('@/components/catalogs/catalog-edit/CatalogsItemsEdit'));
-const AddItemsToCatalogs = React.lazy(() => import('@/containers/AddItemsToCatalogs'));
-const EditAll = React.lazy(() => import('@/components/catalogs/EditBusinessDetails'));
-const CreateCatalog = React.lazy(() => import('@/containers/CreateCatalog'));
-const CatalogDetail = React.lazy(() => import('@/components/catalogs/CatalogDetail'));
-const CreateCategory = React.lazy(() => import('@/components/catalogs/create-steps/Category'));
-const Category = React.lazy(() => import('@/components/catalogs/Category'));
-const ItemDetail = React.lazy(() => import('@/components/catalogs/ItemDetail'));
-const AddItems = React.lazy(() => import('@/containers/AddItems'));
-const OrdersDate = React.lazy(() => import('@/containers/OrdersDate'));
-const Authorization = React.lazy(() => import('@/containers/Authorization'));
-const AdvancedDetails = React.lazy(() => import('@/containers/AdvancedDetails'));
-const Items = React.lazy(() => import('@/containers/Items'));
-const ItemDetails = React.lazy(() => import('@/containers/ItemDetails'));
-const Signup = React.lazy(() => import('@/containers/Signup'));
+// const Orders = React.lazy(() => import('@/containers/Orders'));
+// const Order = React.lazy(() => import('@/containers/Order'));
+// const Catalogs = React.lazy(() => import('@/containers/Catalogs'));
+// const AddItemsPage = React.lazy(() => import('@/containers/AddItemsPage'));
+// const Settings = React.lazy(() => import('@/containers/Settings'));
+// const ProfileSettings = React.lazy(() => import('@/containers/ProfileSettings'));
+// const Notifications = React.lazy(() => import('@/containers/Notifications'));
+// const LegalInfo = React.lazy(() => import('@/containers/LegalInfo'));
+// const Help = React.lazy(() => import('@/containers/Help'));
+// const CatalogItemEdit = React.lazy(() => import('@/components/catalogs/catalog-edit/CatalogsItemsEdit'));
+// const AddItemsToCatalogs = React.lazy(() => import('@/containers/AddItemsToCatalogs'));
+// const EditAll = React.lazy(() => import('@/components/catalogs/EditBusinessDetails'));
+// const CreateCatalog = React.lazy(() => import('@/containers/CreateCatalog'));
+// const CatalogDetail = React.lazy(() => import('@/components/catalogs/CatalogDetail'));
+// const CreateCategory = React.lazy(() => import('@/components/catalogs/create-steps/Category'));
+// const Category = React.lazy(() => import('@/components/catalogs/Category'));
+// const ItemDetail = React.lazy(() => import('@/components/catalogs/ItemDetail'));
+// const AddItems = React.lazy(() => import('@/containers/AddItems'));
+// const OrdersDate = React.lazy(() => import('@/containers/OrdersDate'));
+// const Authorization = React.lazy(() => import('@/containers/Authorization'));
+// const AdvancedDetails = React.lazy(() => import('@/containers/AdvancedDetails'));
+// const Items = React.lazy(() => import('@/containers/Items'));
+// const ItemDetails = React.lazy(() => import('@/containers/ItemDetails'));
+// const Signup = React.lazy(() => import('@/containers/Signup'));
 const Welcome = React.lazy(() => import('@/containers/Welcome'));
-const Dashboard = React.lazy(() => import('@/containers/Dashboard'));
-const Deliveries = React.lazy(() => import('@/containers/Deliveries'));
+// const Dashboard = React.lazy(() => import('@/containers/Dashboard'));
+// const Deliveries = React.lazy(() => import('@/containers/Deliveries'));
 
 if (Number(process.env.LOG_ERROR_TO_SENTRY)) {
   Sentry.init({
@@ -256,42 +253,6 @@ const App: React.FC = () => {
             <Suspense fallback={<Loader scale="0.5" />}>
               <Switch>
                 <Route path="/" component={Welcome} exact />
-                <Route path="/signup" component={Signup} />
-                <ProtectedRoute path="/setup" component={Authorization} />
-
-                <ProtectedRoute path="/catalogs" component={Catalogs} exact />
-                <ProtectedRoute path="/catalogs/add-items/:catalogId" component={AddItems} exact />
-                <ProtectedRoute path="/catalogs/add-items" component={AddItems} exact />
-                <ProtectedRoute path="/catalogs/:id" component={CatalogDetail} exact />
-                <ProtectedRoute path="/catalogs/:id/items" component={CatalogItemEdit} />
-                <ProtectedRoute path="/catalogs/:id/category" component={Category} exact />
-                <ProtectedRoute path="/catalogs/:id/business-details" component={EditAll} />
-                <ProtectedRoute path="/catalogs/new/step1/category" component={CreateCategory} exact />
-                <ProtectedRoute path="/catalogs/new" component={CreateCatalog} />
-                <ProtectedRoute path="/catalog/:catalogId/:itemId/preview" component={ItemDetail} />
-
-                <ProtectedRoute path="/items" component={Items} exact />
-                <ProtectedRoute path="/item-details/:itemId" component={ItemDetails} exact />
-                <ProtectedRoute path="/add-items" component={AddItemsPage} exact />
-                <ProtectedRoute path="/advanced-details/:itemId" component={AdvancedDetails} exact />
-                <ProtectedRoute path="/items/catalogs" component={AddItemsToCatalogs} exact />
-
-                <ProtectedRoute path="/dashboard" component={Dashboard} exact />
-                <ProtectedRoute path="/deliveries" component={Deliveries} exact />
-                {/* <ProtectedRoute path="/pending-orders" component={PendingOrders} exact /> */}
-                <ProtectedRoute path="/pending-orders/:id" component={Order} exact />
-                {/* <ProtectedRoute path="/quote-requests" component={QuoteRequests} exact /> */}
-                {/* <ProtectedRoute path="/quote-requests/:id" component={Quote} exact /> */}
-                <ProtectedRoute path="/orders" component={Orders} exact />
-                <ProtectedRoute path="/orders/date" component={OrdersDate} exact />
-                <ProtectedRoute path="/orders/:id" component={Order} exact />
-
-                <ProtectedRoute path="/settings" component={Settings} exact />
-                <ProtectedRoute path="/profile-settings" component={ProfileSettings} exact />
-                <ProtectedRoute path="/notifications-language" component={Notifications} exact />
-                <ProtectedRoute path="/legal-info" component={LegalInfo} exact />
-                <ProtectedRoute path="/help" component={Help} exact />
-
                 <Redirect to="/" />
               </Switch>
             </Suspense>
