@@ -65,7 +65,7 @@ export default {
     },
   },
   resolve: {
-    plugins: [new TsconfigPathsPlugin()],
+    // plugins: [new TsconfigPathsPlugin()],
     extensions: ['.ts', '.tsx', '.js'],
   },
   // optimization: {
