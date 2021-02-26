@@ -1,6 +1,5 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import LoaderDots from './common/LoaderDots';
 
 interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   shadow?: boolean;
@@ -35,7 +34,7 @@ const Button: React.FC<Props> = ({
     className={classTracking}
     isFixed={isFixed}
   >
-    {isLoading ? <LoaderDots /> : children}
+    {isLoading ? 'q' : children}
   </StyledButton>
 );
 
