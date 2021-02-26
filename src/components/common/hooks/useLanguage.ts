@@ -1,5 +1,7 @@
 import { useMemo } from 'react';
+import { useSelector } from 'react-redux';
 
+import { selectLn } from '@/store/selectors/language';
 import Authorization from '@/utils/language/Authorization';
 import Items from '@/utils/language/Items';
 import Catalogs from '@/utils/language/Catalogs';
@@ -10,7 +12,7 @@ import Months from '@/utils/language/Months';
 import HowItWorks from '@/utils/language/HowItWorks';
 
 export default () => {
-  const ln = 'TH';
+  const ln = useSelector(selectLn);
 
   const authorization = useMemo(() => new Authorization(ln), [ln]);
   const items = useMemo(() => new Items(ln), [ln]);

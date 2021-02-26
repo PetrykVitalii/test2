@@ -1,10 +1,5 @@
-export enum LANGUAGES {
-  EN = 'EN',
-  SG = 'SG',
-  ID = 'ID',
-  TH = 'TH',
-  ZH = 'ZH'
-}
+import { LANGUAGES } from '@/store/reducers/language';
+
 type LanguagesEnumValues = keyof typeof LANGUAGES;
 type ISelector = { [key in LanguagesEnumValues]: string };
 

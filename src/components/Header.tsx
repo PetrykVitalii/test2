@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import SellSmarterIcon from '@/components/common/icons/auth/SaleSmarter';
+import LnSwitcher from '@/components/auth/LnSwitcher';
 
 interface HeaderProps {
 }
@@ -9,6 +10,7 @@ interface HeaderProps {
 const Header: React.FC < HeaderProps > = () => (
   <HeaderStyled>
     <SellSmarterIcon />
+    <LnSwitcher />
   </HeaderStyled>
 );
 
