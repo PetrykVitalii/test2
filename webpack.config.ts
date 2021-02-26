@@ -3,7 +3,6 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
 import { Configuration, EnvironmentPlugin } from 'webpack';
-import { InjectManifest } from 'workbox-webpack-plugin';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import { config } from 'dotenv';
 
@@ -26,7 +25,6 @@ export default {
     new CopyWebpackPlugin({
       patterns: [
         { from: 'assets', to: 'assets', noErrorOnMissing: true },
-        { from: 'pwa/manifest.json', to: 'manifest.json' },
         { from: 'netlify/_redirects', to: '_redirects', toType: 'file' },
       ],
     }),
