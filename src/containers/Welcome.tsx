@@ -1,27 +1,31 @@
 import React from 'react';
 import styled from 'styled-components';
+import useLanguage from './useLanguage';
 
-const Welcome: React.FC = () => (
-  <>
-    <WelcomeStyled height={window.innerHeight}>
-      <Container>
-        <Title>
-          ergerg
-          <Highlight>
+const Welcome: React.FC = () => {
+  const [items] = useLanguage();
+  return (
+    <>
+      <WelcomeStyled height={window.innerHeight}>
+        <Container>
+          <Title>
+            {items.common.august}
+            <Highlight>
+              ergerg
+            </Highlight>
             ergerg
-          </Highlight>
-          ergerg
-        </Title>
+          </Title>
 
-        <BtnWrapper>
-          efrerf
-        </BtnWrapper>
+          <BtnWrapper>
+            efrerf
+          </BtnWrapper>
 
-        <Dots src="/assets/common/lines_left.png" alt="dots-image" />
-      </Container>
-    </WelcomeStyled>
-  </>
-);
+          <Dots src="/assets/common/lines_left.png" alt="dots-image" />
+        </Container>
+      </WelcomeStyled>
+    </>
+  );
+};
 
 const WelcomeStyled = styled.div<{height: number}>`
   position: relative;
