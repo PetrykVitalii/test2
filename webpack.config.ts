@@ -30,11 +30,6 @@ export default {
         { from: 'netlify/_redirects', to: '_redirects', toType: 'file' },
       ],
     }),
-    new InjectManifest({
-      swSrc: './pwa/service-worker.ts',
-      swDest: 'service-worker.js',
-      exclude: [/\.map$/, /manifest$/, /service-worker\.js$/],
-    }),
     new EnvironmentPlugin({
       API_URL: process.env.API_URL,
       BASIN_URL: process.env.BASIN_URL,
