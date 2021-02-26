@@ -1,6 +1,5 @@
 import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
 import { Configuration, EnvironmentPlugin } from 'webpack';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
@@ -11,7 +10,7 @@ config();
 export default {
   mode: process.env.NODE_ENV,
   context: path.resolve(__dirname, 'src'),
-  entry: ['babel-polyfill', './index.tsx'],
+  entry: './index.tsx',
   output: {
     publicPath: '/',
     filename:
@@ -24,7 +23,6 @@ export default {
     new HtmlWebpackPlugin({ template: './html/index.html' }),
     new CopyWebpackPlugin({
       patterns: [
-        { from: 'assets', to: 'assets', noErrorOnMissing: true },
         { from: 'netlify/_redirects', to: '_redirects', toType: 'file' },
       ],
     }),
@@ -68,32 +66,4 @@ export default {
     // plugins: [new TsconfigPathsPlugin()],
     extensions: ['.ts', '.tsx', '.js'],
   },
-  // optimization: {
-  //   moduleIds: 'deterministic',
-  //   runtimeChunk: 'single',
-  //   splitChunks: {
-  //     chunks: 'all',
-  //     minSize: 0,
-  //     maxInitialRequests: Infinity,
-  //     cacheGroups: {
-  //       preload: {
-  //         name: 'preload',
-  //         test: /preload\.css$/,
-  //         chunks: 'all',
-  //         enforce: true,
-  //       },
-  //       // Based on https://medium.com/hackernoon/the-100-correct-way-to-split-your-chunks-with-webpack-f8a9df5b7758
-  //       vendor: {
-  //         test: /[\\/]node_modules[\\/]/,
-  //         name(module: { context: string; _buildHash: string; index: number }) {
-  //           let packageName = /[\\/]node_modules[\\/](.*?)([\\/]|$)/.exec(
-  //             module.context,
-  //           )![1];
-  //           packageName = packageName.replace('@', '');
-  //           return `npm.${packageName}`;
-  //         },
-  //       },
-  //     },
-  //   },
-  // }
 } as Configuration;
