@@ -3,8 +3,9 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import { createGlobalStyle } from 'styled-components';
 import { Provider } from 'react-redux';
 import { normalize } from 'styled-normalize';
+import { ConnectedRouter } from 'connected-react-router';
 
-import store from '@/store';
+import store, { history } from '@/store';
 
 const Home = lazy(() => import('@/components/Home'));
 const About = lazy(() => import('@/components/About'));
@@ -22,18 +23,20 @@ const GlobalStyle = createGlobalStyle`
 const App: React.FC = () => (
   <BrowserRouter>
     <Provider store={store}>
-      <GlobalStyle />
-      <Suspense fallback={<div>loading...</div>}>
-        <Switch>
-          <Route path="/about" exact>
-            <About />
-          </Route>
-          <Route path="/" exact>
-            <Home />
-          </Route>
-        </Switch>
-        <Navigation />
-      </Suspense>
+      <ConnectedRouter history={history}>
+        <GlobalStyle />
+        <Suspense fallback={<div>loading...</div>}>
+          <Switch>
+            <Route path="/about" exact>
+              <About />
+            </Route>
+            <Route path="/" exact>
+              <Home />
+            </Route>
+          </Switch>
+          <Navigation />
+        </Suspense>
+      </ConnectedRouter>
     </Provider>
   </BrowserRouter>
 );
