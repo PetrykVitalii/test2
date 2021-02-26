@@ -26,15 +26,15 @@ export default {
     new CopyWebpackPlugin({
       patterns: [
         { from: 'assets', to: 'assets', noErrorOnMissing: true },
-        { from: 'pwa/manifest.json', to: 'manifest.json' },
-        { from: 'netlify/_redirects', to: '_redirects', toType: 'file' },
+        // { from: 'pwa/manifest.json', to: 'manifest.json' },
+        // { from: 'netlify/_redirects', to: '_redirects', toType: 'file' },
       ],
     }),
-    new InjectManifest({
-      swSrc: './pwa/service-worker.ts',
-      swDest: 'service-worker.js',
-      exclude: [/\.map$/, /manifest$/, /service-worker\.js$/],
-    }),
+    // new InjectManifest({
+    //   swSrc: './pwa/service-worker.ts',
+    //   swDest: 'service-worker.js',
+    //   exclude: [/\.map$/, /manifest$/, /service-worker\.js$/],
+    // }),
     new EnvironmentPlugin({
       API_URL: process.env.API_URL,
       BASIN_URL: process.env.BASIN_URL,
