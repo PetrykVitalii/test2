@@ -2,6 +2,9 @@
   "name": "agora",
   "version": "1.0.0",
   "description": "",
+  "keywords": [],
+  "license": "ISC",
+  "author": "Lambda Team",
   "main": "index.js",
   "scripts": {
     "start": "cross-env NODE_ENV=development PORT=8080 webpack serve",
@@ -9,9 +12,6 @@
     "server": "node .",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx ./"
   },
-  "keywords": [],
-  "author": "Lambda Team",
-  "license": "ISC",
   "browserslist": {
     "production": [
       ">0.2%",
