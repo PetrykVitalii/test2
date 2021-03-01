@@ -29,11 +29,21 @@ export const trackUtm = (): AsyncAction => async (_, getState) => {
   const { router } = getState();
   const { search } = router.location;
 
-  const searchUtms = queryString.parse(search);
-
   const localStorageUtms = LocalStorage.getUTM() || {};
 
-  const entriesUtms = Object.entries(searchUtms);
+  const searchUtms = search.slice(1).split('&').reduce((a, i) => {
+    const [x, y] = i.split('=');
+    if (allUtms[x]) {
+      a[x] = y;
+    }
+
+    return a;
+  }, {}) || {};
+  console.log(searchUtms);
+
+  // const searchUtms = queryString.parse(search) as IUtm;
+
+  const entriesUtms = Object.entries(searchUtms) as [keyof IUtm, string][];
 
   const utmsToSave = entriesUtms.reduce(
     (utms: IUtm, [key, value]) => {
