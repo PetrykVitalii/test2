@@ -1,15 +1,12 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
-import { RouteComponentProps } from 'react-router';
 
 import CreateStep1 from './CreateStep1';
 import useToggle from '../common/hooks/useToggle';
 import CreateStep2 from './CreateStep2';
 import CreateCatalogsStep from './CreateCatalogStep';
 
-interface Props extends RouteComponentProps {}
-
-const CreateDefaultCatalog: React.FC<Props> = ({ history }) => {
+const CreateDefaultCatalog: React.FC = () => {
   const [isNextStep, setIsNextStep] = useToggle(false);
 
   useEffect(() => {
@@ -22,7 +19,7 @@ const CreateDefaultCatalog: React.FC<Props> = ({ history }) => {
       <Main>
         {isNextStep
           ? <CreateStep2 />
-          : <CreateStep1 history={history} setIsNextStep={setIsNextStep} />}
+          : <CreateStep1 setIsNextStep={setIsNextStep} />}
       </Main>
     </Container>
   );
