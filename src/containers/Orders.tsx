@@ -104,7 +104,14 @@ const Orders: React.FC<Props> = ({ location }) => {
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'auto' });
-    const qParams = queryString.parse(location.search);
+    const qParams = location.search.slice(1).split('&').reduce((a, i) => {
+      const [x, y] = i.split('=');
+      if (allUtms[x]) {
+        a[x] = y;
+      }
+
+      return a;
+    }, {}) || {};
     const { dateFrom = Number.MIN_VALUE, dateTill = Number.MAX_VALUE } = qParams;
     const rangeType = showUpcomingDeliveriesOnly
       ? SortFilters.DELIVERY_DATE : SortFilters.ORDER_DATE;

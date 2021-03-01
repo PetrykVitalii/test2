@@ -15,7 +15,7 @@ export interface IUtm {
   utm_term?: string;
 }
 
-const allUtms: IUtm = {
+export const allUtms: IUtm = {
   utm_source: 'OK',
   utm_medium: 'OK',
   utm_campaign: 'OK',
