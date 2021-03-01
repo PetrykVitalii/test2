@@ -1,10 +1,10 @@
-export default (top: number) => {
+export default (top: number, behavior: 'smooth' | 'auto' = 'smooth') => {
   try {
     window.scrollTo({
       top,
-      behavior: 'smooth',
+      behavior,
     });
   } catch (e) {
-    window.scrollTo(0, 0);
+    window.scrollTo(top, 0);
   }
 };

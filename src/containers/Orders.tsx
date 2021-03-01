@@ -1,9 +1,9 @@
+/* eslint-disable no-param-reassign */
 /* eslint-disable arrow-body-style */
 /* eslint-disable @typescript-eslint/dot-notation */
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import moment from 'moment';
-import queryString from 'query-string';
 import { RouteComponentProps } from 'react-router-dom';
 import { useHistory } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
@@ -102,19 +102,30 @@ const Orders: React.FC<Props> = ({ location }) => {
     }
   }, [filteredOrders, inputValue, statusFilters, showUpcomingDeliveriesOnly, filter]);
 
-  useEffect(() => {
-    
-    const qParams = location.search.slice(1).split('&').reduce((a, i) => {
-      const [x, y] = i.split('=');
-      if (allUtms[x]) {
-        a[x] = y;
-      }
+  interface Query {
+    dateFrom: string;
+    dateTill: string;
+  }
 
-      return a;
-    }, {}) || {};
-    const { dateFrom = Number.MIN_VALUE, dateTill = Number.MAX_VALUE } = qParams;
+  useEffect(() => {
+    const qParams = location.search
+      .slice(1)
+      .split('&')
+      .reduce(
+        (a: Query, i: string) => {
+          const [x, y] = i.split('=') as [keyof Query, string];
+          a[x] = y;
+          return a;
+        },
+        { dateFrom: '', dateTill: '' },
+      ) || { dateFrom: '', dateTill: '' };
+    const {
+      dateFrom = Number.MIN_VALUE,
+      dateTill = Number.MAX_VALUE,
+    } = qParams;
     const rangeType = showUpcomingDeliveriesOnly
-      ? SortFilters.DELIVERY_DATE : SortFilters.ORDER_DATE;
+      ? SortFilters.DELIVERY_DATE
+      : SortFilters.ORDER_DATE;
 
     if (dateFrom && dateTill && rangeType) {
       dispatch(getFilteredOrders(+dateFrom, +dateTill, rangeType));
