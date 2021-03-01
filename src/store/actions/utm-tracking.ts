@@ -29,7 +29,7 @@ export const trackUtm = (): AsyncAction => async (_, getState) => {
   const { router } = getState();
   const { search } = router.location;
 
-  const searchUtms = queryString.parse(search) as IUtm;
+  // const searchUtms = queryString.parse(search) as IUtm;
 
   const localStorageUtms = LocalStorage.getUTM() || {};
 
