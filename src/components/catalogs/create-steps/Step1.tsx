@@ -64,7 +64,7 @@ const Step1: React.FC<Props> = ({
   const category = useSelector(selectCategory);
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'auto' });
+    
   }, []);
 
   useEffect(() => {

@@ -35,7 +35,7 @@ const CreateStep2: React.FC<Props> = () => {
   const [isInitialized, setIsInitialized] = useToggle(false);
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'auto' });
+    
   }, []);
 
   useEffect(() => {

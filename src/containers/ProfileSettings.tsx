@@ -56,7 +56,7 @@ const ProfileSettings: React.FC = () => {
 
   useEffect(() => {
     if (user === null) dispatch(getUserInfo());
-    window.scrollTo({ top: 0, behavior: 'auto' });
+    
 
     return () => {
       dispatch(resetLoadingStatus());

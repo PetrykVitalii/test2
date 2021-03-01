@@ -55,7 +55,7 @@ const Step3: React.FC<Props> = ({
   const enterPress = useKeyPress('Enter');
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'auto' });
+    
   }, []);
 
   useEffect(() => {

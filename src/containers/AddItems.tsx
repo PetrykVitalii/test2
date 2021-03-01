@@ -53,7 +53,7 @@ const AddItemsPage: React.FC = () => {
   useEffect(() => {
     if (!items.length) {
       dispatch(emptyItemsActions.addEmptyItem());
-      window.scrollTo({ top: 0, behavior: 'auto' });
+      
     }
   }, [items]);
 

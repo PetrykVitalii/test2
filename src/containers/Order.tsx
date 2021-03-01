@@ -95,7 +95,7 @@ const Order: React.FC<Props> = ({ match }) => {
   }, [isLoadingCancel, isLoadingConfirm, isLoadingDelivered, isLoadingShipOrder]);
 
   const handleCancelOrder = async () => {
-    window.scrollTo(0, 0);
+    
     setIsCancelModal(false);
     setIsShipModal(false);
     await dispatch(editStatusOrder(order!.order.id, 'Cancelled'));
@@ -105,7 +105,7 @@ const Order: React.FC<Props> = ({ match }) => {
   };
 
   const handleConfirm = async () => {
-    window.scrollTo(0, 0);
+    
     await dispatch(editStatusOrder(order!.order.id, 'Confirmed'));
     setToastText(dashboard.order_confirmed_success);
     setToastBackground('#6faba1');
@@ -121,7 +121,7 @@ const Order: React.FC<Props> = ({ match }) => {
   };
 
   const handleDelivered = async () => {
-    window.scrollTo(0, 0);
+    
     setIsDeliveredModal(false);
     await dispatch(editStatusOrder(order!.order.id, 'Delivered'));
     setToastText(dashboard.order_delivered_success);

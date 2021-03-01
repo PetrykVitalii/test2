@@ -35,7 +35,7 @@ const CatalogItemEdit: React.FC<Props> = ({ handleToggleEdit }) => {
   const [isModalSearch, setIsModalSearch] = useToggle();
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'auto' });
+    
   }, []);
 
   if (catalog === null) return null;

@@ -54,7 +54,7 @@ const Step4: React.FC<Props> = ({
   const isCustomPricingEnabled = useSelector(selectIsCustomPricingEnabled);
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'auto' });
+    
   }, []);
 
   useEffect(() => {

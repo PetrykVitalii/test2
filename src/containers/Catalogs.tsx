@@ -40,7 +40,7 @@ const Catalogs: React.FC = () => {
   }, [allCatalogs]);
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'auto' });
+    
     dispatch(catalogsActions.setSelectedTab(TAB.Items));
     dispatch(getCatalogs());
   }, []);

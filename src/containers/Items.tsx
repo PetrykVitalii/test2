@@ -34,7 +34,7 @@ const Items: React.FC = () => {
   });
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'auto' });
+    
     dispatch(getUserItems());
     dispatch(getUnits());
   }, []);

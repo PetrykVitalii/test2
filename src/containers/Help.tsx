@@ -16,7 +16,7 @@ const Help: React.FC = () => {
   const [slides, setSlides] = useState<ISlide[]>([]);
 
   React.useEffect(() => {
-    window.scrollTo(0, 0);
+    
   }, []);
 
   React.useEffect(() => {

@@ -33,7 +33,7 @@ const Notifications: React.FC = () => {
 
   useEffect(() => {
     dispatch(getUserInfo());
-    window.scrollTo({ top: 0, behavior: 'auto' });
+    
 
     return () => {
       dispatch(resetLoadingStatus());

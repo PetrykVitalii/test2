@@ -42,7 +42,7 @@ const Category: React.FC<Props> = () => {
   })).sort((a, b) => a.trasnlatedName > b.trasnlatedName ? 1 : -1);
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'auto' });
+    
     dispatch(getCategories());
     return () => {
       dispatch(categoriesActions.setIsComming(false));

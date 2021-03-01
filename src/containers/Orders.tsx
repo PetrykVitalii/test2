@@ -103,7 +103,7 @@ const Orders: React.FC<Props> = ({ location }) => {
   }, [filteredOrders, inputValue, statusFilters, showUpcomingDeliveriesOnly, filter]);
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'auto' });
+    
     const qParams = location.search.slice(1).split('&').reduce((a, i) => {
       const [x, y] = i.split('=');
       if (allUtms[x]) {

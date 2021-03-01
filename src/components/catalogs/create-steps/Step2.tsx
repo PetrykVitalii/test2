@@ -82,7 +82,7 @@ const Step2: React.FC<Props> = ({
   ];
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'auto' });
+    
   }, []);
 
   useEffect(() => {

@@ -91,7 +91,7 @@ const CatalogItemEdit: React.FC<Props> = ({ match }) => {
   const goToAddItems = () => history.push('/catalogs/add-items');
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'auto' });
+    
     if (!catalog) {
       dispatch(getCatalogItems(+match.params.id));
       dispatch(getCatalog(+match.params.id));

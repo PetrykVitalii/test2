@@ -164,7 +164,7 @@ const Dashboard: React.FC = () => {
     dispatch(getSellerStats(PERIODS.today));
     dispatch(refreshUser());
     dispatch(getUserItems());
-    // window.scrollTo({ top: 0, behavior: 'auto' });
+    // 
     // return () => {
     //   dispatch(userActions.setIsComing(false));
     // };

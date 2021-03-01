@@ -46,7 +46,7 @@ const AddItems: React.FC<Props> = () => {
   }, [enterPress]);
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'auto' });
+    
     dispatch(getUnits());
   }, []);
 
@@ -63,7 +63,7 @@ const AddItems: React.FC<Props> = () => {
   useEffect(() => {
     if (!items.length) {
       dispatch(emptyItemsActions.addEmptyItem());
-      window.scrollTo({ top: 0, behavior: 'auto' });
+      
     } else {
       const item = items[0];
       if (item.name && item.unit.name) {

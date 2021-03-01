@@ -43,7 +43,7 @@ const AdvancedDetail: React.FC<Props> = ({ match, history }) => {
   const urlImage = useSelector(selectUrl);
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'auto' });
+    
   }, []);
 
   useEffect(() => {

@@ -40,10 +40,6 @@ const AddItemsToCatalogs: React.FC<Props> = ({ history }) => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    window.scrollTo({
-      top: 0,
-      behavior: 'auto',
-    });
     dispatch(getCatalogs());
     return () => {
       dispatch(itemsToCatalogsActions.setIsComing(false));

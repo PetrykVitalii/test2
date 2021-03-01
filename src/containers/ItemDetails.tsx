@@ -87,7 +87,7 @@ const ItemDetails: React.FC<Props> = ({ match }) => {
       dispatch(getUserItem(id));
       dispatch(getUnits());
     }
-    window.scrollTo({ top: 0, behavior: 'auto' });
+    
   }, []);
 
   useEffect(() => {

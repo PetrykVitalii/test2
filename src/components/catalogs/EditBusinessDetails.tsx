@@ -71,7 +71,7 @@ const BussinesDetails: React.FC<Props> = ({ match }) => {
   const goToCategory = () => history.push(`/catalogs/${match.params.id}/category`);
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'auto' });
+    
     if (catalog === null) {
       dispatch(getCatalog(+match.params.id));
     }

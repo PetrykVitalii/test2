@@ -10,7 +10,7 @@ const CreateDefaultCatalog: React.FC = () => {
   const [isNextStep, setIsNextStep] = useToggle(false);
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'auto' });
+    
   }, []);
 
   return (
