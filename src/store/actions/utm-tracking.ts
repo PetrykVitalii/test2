@@ -13,23 +13,23 @@ export interface IUtm {
   utm_term?: string;
 }
 
-// const allUtms: IUtm = {
-//   utm_source: 'OK',
-//   utm_medium: 'OK',
-//   utm_campaign: 'OK',
-//   gclid: 'OK',
-//   fbclid: 'OK',
-//   utm_content: 'OK',
-//   utm_term: 'OK',
-// };
+const allUtms: IUtm = {
+  utm_source: 'OK',
+  utm_medium: 'OK',
+  utm_campaign: 'OK',
+  gclid: 'OK',
+  fbclid: 'OK',
+  utm_content: 'OK',
+  utm_term: 'OK',
+};
 
 export const trackUtm = (): AsyncAction => async (_, getState) => {
-  // const { router } = getState();
-  // const { search } = router.location;
+  const { router } = getState();
+  const { search } = router.location;
 
-  // const searchUtms = queryString.parse(search) as IUtm;
+  const searchUtms = queryString.parse(search) as IUtm;
 
-  // const localStorageUtms = LocalStorage.getUTM() || {};
+  const localStorageUtms = LocalStorage.getUTM() || {};
 
   // const entriesUtms = Object.entries(searchUtms) as [keyof IUtm, string][];
 
