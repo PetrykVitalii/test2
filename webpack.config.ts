@@ -2,8 +2,7 @@ import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin';
 import CopyWebpackPlugin from 'copy-webpack-plugin';
-import { Configuration, EnvironmentPlugin } from 'webpack';
-import { InjectManifest } from 'workbox-webpack-plugin';
+import { EnvironmentPlugin } from 'webpack';
 import { CleanWebpackPlugin } from 'clean-webpack-plugin';
 import { config } from 'dotenv';
 

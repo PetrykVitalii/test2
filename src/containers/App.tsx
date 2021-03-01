@@ -30,9 +30,7 @@ const App: React.FC = () => (
             <Route path="/about" exact>
               <About />
             </Route>
-            <Route path="/" exact>
-              <Home />
-            </Route>
+            <Route path="/" exact component={Home} />
           </Switch>
           <Navigation />
         </Suspense>
