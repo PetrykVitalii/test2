@@ -12,6 +12,7 @@ import { Item } from '@/store/reducers/items';
 import LocalStorage, { LOCALS } from '@/utils/local-storage';
 import Authorization from '@/utils/language/Authorization';
 
+import axios from 'axios';
 import { AsyncAction } from './common';
 import { emptyItemsActions } from './emptyItems';
 import { userActions } from './user';
@@ -266,28 +267,30 @@ export const sendItems = (): AsyncAction => async (dispatch, getState, { mainPro
   }
 };
 
-export const sendBeacon = (): AsyncAction => async (
+export const sendBeacon = (locale: string, country: string, city: string): AsyncAction => async (
+  dispatch,
+  getState,
 ) => {
   try {
-    // const utms = LocalStorage.getUTM() || {};
+    const utms = LocalStorage.getUTM() || {};
 
-    // const utmsEntries = Object.entries(utms);
-    // // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    // const filteredUtms = utmsEntries.filter(([_, value]) => value);
-    // const utmsToSend = Object.fromEntries<string>(filteredUtms);
-    // const { userReducer: { user } } = getState();
+    const utmsEntries = Object.entries(utms);
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const filteredUtms = utmsEntries.filter(([_, value]) => value);
+    const utmsToSend = Object.fromEntries<string>(filteredUtms);
+    const { userReducer: { user } } = getState();
 
-    // const body = {
-    //   ...utmsToSend,
-    //   phone_number: user?.phone,
-    //   full_name: user?.full_name,
-    //   business_name: user?.business_name,
-    //   locale,
-    //   country,
-    //   city,
-    // };
+    const body = {
+      ...utmsToSend,
+      phone_number: user?.phone,
+      full_name: user?.full_name,
+      business_name: user?.business_name,
+      locale,
+      country,
+      city,
+    };
 
-    // await axios.post(process.env.BASIN_URL, body);
+    await axios.post(process.env.BASIN_URL, body);
   } catch (e) {
     console.error(e);
   }
