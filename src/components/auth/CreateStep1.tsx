@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import styled from 'styled-components';
 import { useDispatch, useSelector } from 'react-redux';
-import * as H from 'history';
 
 import SmallArrowIcon from '@/components/common/icons/items/SmallArrowIcon';
 import CatalogCard from '@/components/catalogs/CatalogCard';
@@ -17,11 +16,10 @@ import MultyRange from '../MultyRange';
 import TextArea from '../TextArea';
 
 interface Props {
-  history: H.History;
   setIsNextStep: HandleToggle;
 }
 
-const CreateStep1: React.FC<Props> = ({ history, setIsNextStep }) => {
+const CreateStep1: React.FC<Props> = ({ setIsNextStep }) => {
   const [{ catalogs, common, authorization }] = useLanguage();
   const [isCategoryError, toggleIsCategoryError] = useToggle();
   const catalog = useSelector(selectCatalog);
@@ -47,7 +45,7 @@ const CreateStep1: React.FC<Props> = ({ history, setIsNextStep }) => {
     );
   }, [leftInput, rightInput]);
 
-  const goToCategory = () => history.push('/setup/step3/category');
+  const goToCategory = () => 'ewd';
 
   const handleDescription = (value: string) => {
     dispatch(catalogsActions.changeDescription(value));
