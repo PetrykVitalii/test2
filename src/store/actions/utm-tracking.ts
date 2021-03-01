@@ -31,14 +31,14 @@ export const trackUtm = (): AsyncAction => async (_, getState) => {
 
   const localStorageUtms = LocalStorage.getUTM() || {};
 
-  const searchUtms = search.slice(1).split('&').reduce((a, i) => {
-    const [x, y] = i.split('=');
+  const searchUtms = search.slice(1).split('&').reduce((a: IUtm, i) => {
+    const [x, y] = i.split('=') as [keyof IUtm, string];
     if (allUtms[x]) {
       a[x] = y;
     }
 
     return a;
-  }, {}) || {};
+  }, {}) || {} as IUtm;
   console.log(searchUtms);
 
   // const searchUtms = queryString.parse(search) as IUtm;
