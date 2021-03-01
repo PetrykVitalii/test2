@@ -33,7 +33,7 @@ export const trackUtm = (): AsyncAction => async (_, getState) => {
 
   const localStorageUtms = LocalStorage.getUTM() || {};
 
-  const entriesUtms = Object.entries(searchUtms) as [keyof IUtm, string][];
+  const entriesUtms = Object.entries(searchUtms);
 
   const utmsToSave = entriesUtms.reduce(
     (utms: IUtm, [key, value]) => {
