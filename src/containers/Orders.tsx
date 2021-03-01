@@ -117,12 +117,17 @@ const Orders: React.FC<Props> = ({ location }) => {
           a[x] = y;
           return a;
         },
-        { dateFrom: '', dateTill: '' },
-      ) || { dateFrom: '', dateTill: '' };
+        {} as Query,
+      );
+    console.log(location.search);
+    console.log(qParams);
+
     const {
       dateFrom = Number.MIN_VALUE,
       dateTill = Number.MAX_VALUE,
     } = qParams;
+    console.log(dateFrom, dateTill);
+
     const rangeType = showUpcomingDeliveriesOnly
       ? SortFilters.DELIVERY_DATE
       : SortFilters.ORDER_DATE;
