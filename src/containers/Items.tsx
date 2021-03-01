@@ -34,7 +34,7 @@ const Items: React.FC = () => {
   });
 
   useEffect(() => {
-    
+    window.scrollTo(0, 0);
     dispatch(getUserItems());
     dispatch(getUnits());
   }, []);
@@ -57,9 +57,9 @@ const Items: React.FC = () => {
             <>
               {userItems.length > 0 ? (
                 <Catalog
-                    filter={filter}
-                    userItems={filterItems}
-                    openModal={setActiveFilter}
+                  filter={filter}
+                  userItems={filterItems}
+                  openModal={setActiveFilter}
                 />
               ) : !isCameItems && (
               <EmptyCatalog />

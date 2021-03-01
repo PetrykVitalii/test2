@@ -1,6 +1,10 @@
 export default (top: number) => {
-  window.scrollTo({
-    top,
-    behavior: 'smooth',
-  });
+  try {
+    window.scrollTo({
+      top,
+      behavior: 'smooth',
+    });
+  } catch (e) {
+    window.scrollTo(0, 0);
+  }
 };

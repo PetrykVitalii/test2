@@ -19,6 +19,7 @@ import Card from '@/components/catalogs/Card';
 import IntroCard from '@/components/catalogs/IntroCard';
 import Navigation from '@/components/Navigation';
 import FixedHeader from '@/components/FixedHeader';
+import scrollTo from '@/utils/scrollTo';
 
 const Catalogs: React.FC = () => {
   const [{ catalogs }] = useLanguage();
@@ -40,7 +41,7 @@ const Catalogs: React.FC = () => {
   }, [allCatalogs]);
 
   useEffect(() => {
-    
+    scrollTo(0);
     dispatch(catalogsActions.setSelectedTab(TAB.Items));
     dispatch(getCatalogs());
   }, []);
