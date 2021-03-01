@@ -1,16 +1,17 @@
 {
   "presets": [
-    ["@babel/preset-env", {
-      "useBuiltIns": "usage", // or "entry"
-      "corejs": 3
-    }],
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "browsers": "last 2 versions"
+        }
+      }
+    ],
     "@babel/preset-typescript",
     "@babel/preset-react"
   ],
   "plugins": [
-    ["@babel/transform-runtime", {
-      "corejs": 3
-    }],
     [
       "@babel/plugin-proposal-decorators",
       {

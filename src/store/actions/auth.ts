@@ -2,7 +2,6 @@
 /* eslint-disable no-restricted-globals */
 import { createActionCreators } from 'immer-reducer';
 import { push } from 'connected-react-router';
-import axios from 'axios';
 
 import { authRestore } from '@/store/actions/auth-restore';
 import { IUtm } from '@/store/actions/utm-tracking';
@@ -267,30 +266,28 @@ export const sendItems = (): AsyncAction => async (dispatch, getState, { mainPro
   }
 };
 
-export const sendBeacon = (locale: string, country: string, city: string): AsyncAction => async (
-  dispatch,
-  getState,
+export const sendBeacon = (): AsyncAction => async (
 ) => {
   try {
-    const utms = LocalStorage.getUTM() || {};
+    // const utms = LocalStorage.getUTM() || {};
 
-    const utmsEntries = Object.entries(utms);
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    const filteredUtms = utmsEntries.filter(([_, value]) => value);
-    const utmsToSend = Object.fromEntries<string>(filteredUtms);
-    const { userReducer: { user } } = getState();
+    // const utmsEntries = Object.entries(utms);
+    // // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    // const filteredUtms = utmsEntries.filter(([_, value]) => value);
+    // const utmsToSend = Object.fromEntries<string>(filteredUtms);
+    // const { userReducer: { user } } = getState();
 
-    const body = {
-      ...utmsToSend,
-      phone_number: user?.phone,
-      full_name: user?.full_name,
-      business_name: user?.business_name,
-      locale,
-      country,
-      city,
-    };
+    // const body = {
+    //   ...utmsToSend,
+    //   phone_number: user?.phone,
+    //   full_name: user?.full_name,
+    //   business_name: user?.business_name,
+    //   locale,
+    //   country,
+    //   city,
+    // };
 
-    await axios.post(process.env.BASIN_URL, body);
+    // await axios.post(process.env.BASIN_URL, body);
   } catch (e) {
     console.error(e);
   }
